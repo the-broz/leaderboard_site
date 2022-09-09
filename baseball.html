@@ -106,37 +106,40 @@ console.log(sortable);
       oldData = sortable
       }
       for (var i=0; i < sortable.length; i++){
-                var done = false;
-                console.log("working on: "+i)
-      const newScore = document.createElement("p");
-                if (i + 1 == 1){
-                          animateValue(newScore,0,sortable[i][1],3,sortable[i][0])
-                          console.log("is first!");
-                           newScore.className = "placement"
-                          done = true;
-                           document.getElementsByClassName("placements")[0].appendChild(newScore);
-                          newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";
-                }
-                if (i + 1 == 2){
-                          newScore.innerHTML = "[<span class=\"sec\"><img src=\"/static/leaderboard/sec.png\" alt=\"2nd\"></span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
-                          console.log("is sec!");
-                           newScore.className = "placement"
-                          done = true;
-                          
-                           document.getElementsByClassName("placements")[0].appendChild(newScore);
-                           newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";
-                }
-                if (i + 1 == 3){
-                          newScore.innerHTML = "[<span class=\"third\"><img src=\"/static/leaderboard/third.png\" alt=\"3rd\"></span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
-                          console.log("is third!");
-                           newScore.className = "placement"
-                          done = true;
-                           document.getElementsByClassName("placements")[0].appendChild(newScore);
-                           newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";
-                }
-
-                         console.log(i-1)
-                         if (sortable[i-1] != undefined){
+                    
+                    var done = false;
+                    var table = sortable[i];
+                    console.log("working on: "+i)
+          const newScore = document.createElement("p");
+          if (i + 1 == 1){
+                              animateValue(newScore,0,sortable[i][1],.1,sortable[i][0])
+                              console.log("is first!");
+                               newScore.className = "placement"
+                              done = true;
+                               document.getElementsByClassName("placements")[0].appendChild(newScore);
+                    if (firstTime == true){          
+                    newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";}
+                    }
+                    if (i + 1 == 2){
+                              newScore.innerHTML = "[<span class=\"sec\"><img src=\"/static/leaderboard/sec.png\" alt=\"2nd\"></span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
+                              console.log("is sec!");
+                               newScore.className = "placement"
+                              done = true;
+                              
+                               document.getElementsByClassName("placements")[0].appendChild(newScore);
+                               if (firstTime == true){          
+                    newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";}
+                    }
+                    if (i + 1 == 3){
+                              newScore.innerHTML = "[<span class=\"third\"><img src=\"/static/leaderboard/third.png\" alt=\"3rd\"></span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
+                              console.log("is third!");
+                               newScore.className = "placement"
+                              done = true;
+                               document.getElementsByClassName("placements")[0].appendChild(newScore);
+                               if (firstTime == true){          
+                    newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";}
+                    }
+                    if (sortable[i-1] != undefined){
                          if (sortable[i-1][1] == sortable[i][1]){
                               if (i == 1){
                               animateValue(newScore,0,sortable[i][1],3,sortable[i][0])
@@ -147,7 +150,7 @@ console.log(sortable);
                               newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";
                     }
                     if (i  == 2){
-                              newScore.innerHTML = "[<span class=\"sec\">2nd</span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
+                              newScore.innerHTML = "[<span class=\"sec\">2nd</span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" pts"
                               console.log("is sec!");
                                newScore.className = "placement"
                               done = true;
@@ -156,7 +159,7 @@ console.log(sortable);
                                newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i-1)+"s; animation-iteration-count: 1;";
                     }
                     if (i  == 3){
-                              newScore.innerHTML = "[<span class=\"third\">3rd</span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
+                              newScore.innerHTML = "[<span class=\"third\">3rd</span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" pts"
                               console.log("is third!");
                                newScore.className = "placement"
                               done = true;
@@ -175,28 +178,49 @@ console.log(sortable);
                             }else{
                               console.log("undefined")
                               if (done == false){
-                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i-1][0]+" - "+addCommas(sortable[i-1][1])+" runs"
+                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i-1][0]+" - "+addCommas(sortable[i-1][1])+" pts"
                               }
                              }
-                newScore.className = "placement"
-                console.log("not first or second or third!");
-               document.getElementsByClassName("placements")[0].appendChild(newScore);
-               if (firstTime == true){
+                    newScore.className = "placement"
+                    console.log("not first or second or third!");
+                   document.getElementsByClassName("placements")[0].appendChild(newScore);
+                         
+                   if (firstTime == true){
                     newScore.style = "animation: scoreAdd; animation-duration: "+(.12+i)+"s; animation-iteration-count: 1;";
-      
-               }
-              
-                
-                
-      }
-      
+                   }
+                   
+                    
+                    
+          }
+          
 });
-                 }
+                     }
+                     var CAT1 = document.getElementById("pauseless")
+                     var TITLE = document.getElementsByClassName("title")
+                     var CAT2 = document.getElementById("pause")
+                     
+                     
+                     CAT1.addEventListener('click',function(e){
+                     e.preventDefault();
+                               CAT = "pauseless"
+                               CAT1.className = "active"
+                               document.title = "Tetrys - Pauseless Leaderboard"
+                               CAT2.className = "inactive"
+                               updateBoard();
+                     });
+                     CAT2.addEventListener('click',function(e){
+                     e.preventDefault();
+                               CAT = "paused"
+                               CAT2.className = "active"
+                               document.title = "Tetrys - Pauses Leaderboard"
+                               CAT1.className = "inactive"
+                               updateBoard();
+                     });
+                     
 updateBoard();
 setInterval(function(){
   firstTime = false;
 updateBoard();
-},30000);
-                 
+},30000);     
 </script>         
 </body>
