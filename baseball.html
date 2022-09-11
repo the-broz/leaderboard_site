@@ -195,27 +195,7 @@ console.log(sortable);
           
 });
                      }
-                     var CAT1 = document.getElementById("pauseless")
-                     var TITLE = document.getElementsByClassName("title")
-                     var CAT2 = document.getElementById("pause")
                      
-                     
-                     CAT1.addEventListener('click',function(e){
-                     e.preventDefault();
-                               CAT = "pauseless"
-                               CAT1.className = "active"
-                               document.title = "Tetrys - Pauseless Leaderboard"
-                               CAT2.className = "inactive"
-                               updateBoard();
-                     });
-                     CAT2.addEventListener('click',function(e){
-                     e.preventDefault();
-                               CAT = "paused"
-                               CAT2.className = "active"
-                               document.title = "Tetrys - Pauses Leaderboard"
-                               CAT1.className = "inactive"
-                               updateBoard();
-                     });
                      
 updateBoard();
 setInterval(function(){
