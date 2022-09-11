@@ -45,7 +45,7 @@ onValue(starCountRef, (snapshot) => {
                 // thats it!
                 console.log("correct")
                 signInButton.innerHTML = Object.keys(thedata)[i]
-                signInButton.href = "";
+                signInButton.href = "javascript:void()";
             }else{
             
             }
