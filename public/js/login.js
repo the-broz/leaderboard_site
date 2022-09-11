@@ -48,7 +48,7 @@ onValue(starCountRef, (snapshot) => {
                 // thats it!
                 console.log("correct")
                 loginButton.value = "Logging in..."
-                      location.replace('http://localhost:3000/');
+                      location.replace('http://leaderboardsite.herokuapp.com/');
               
             }else{
             console.log("TOKEN NO LONGER VALID.")
