@@ -1,51 +1,35 @@
 body {
+          margin: 0;
     background-color: #0fbe55;
                                   font-family: 'Work Sans', sans-serif;
     }
-                        .topnav {
-      background-color: #08a04500;
-      overflow: hidden;
-                                  width: 102%;
-                                  position: relative;
-                                  top: -12px;
-    left: -7px;
-                                                    
-    }
-    
-    /* Style the links inside the navigation bar */
-    .topnav a {
-      float: left;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-                        
-    /* Change the color of links on hover */
-    .topnav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-    
-    /* Add a color to the active/current link */
-    .topnav a.active {
-      background-color: #355070;
-      color: white;
-    }
-                        .topnav a.leftside {
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-                                  float: right;
-    }
-                        .topnav a.leftsideactive {
-      background-color: #355070;
-      color: white;
-    }
-                        .trending {
+.topnav {
+  background-color: #08A045;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #355070;
+  color: white;
+}
+.trending {
                                   display: flex;
                         align-items: left;
                         flex-wrap: wrap;
@@ -61,18 +45,24 @@ body {
               cursor: pointer;
               margin-top: 15px;
               justify-content: center;
+              
+              
     }
                         .trending div h1 {
                                   position: absolute;
                         bottom: 0px;
                                   font-size: 20px;
                                   color: white;
+                                  
                         }
                         .trending div:hover {
               
               animation: hover;
                                   animation-duration: .5s;
-               background-color: #355070;
+                                  outline-color: #355070;
+                                  outline-width: 5px;
+                                  outline-style: solid;
+               /*background-color: #355070;*/
     }
     
     .SectionTitle {
@@ -82,10 +72,14 @@ body {
                    
                         @keyframes hover {
                                   0% {
-                                  background-color: #08A045;
+                                  outline: none;
+                                            outline-width: 0px;
+                                            outline-style: none;
                                   }
                                   
                                   100% {
-                                  background-color: #355070;
+                                  outline-color: #355070;
+                                            outline-width: 5px;
+                                            outline-style: solid;
                                   }
                         }

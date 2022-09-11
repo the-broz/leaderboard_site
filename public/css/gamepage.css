@@ -1,14 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap');
-                    html, body { background-color: #0fbe55; font-family: 'Work Sans', sans-serif;}
+                    html, body { margin: 0;background-color: #0fbe55; font-family: 'Work Sans', sans-serif;}
                                         .topnav {
-  background-color: #08a04500;
+  background-color: #08A045;
   overflow: hidden;
-                              width: 100%;
-                              position: relative;
-                                                  
-                              top: -12px;
-                                                  left: -7;
-                                                
 }
 
 /* Style the links inside the navigation bar */
@@ -19,9 +13,8 @@
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
-          opacity: 1;
 }
-                    
+
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: #ddd;
@@ -32,14 +25,7 @@
 .topnav a.active {
   background-color: #355070;
   color: white;
-}
-        
-                    
-                    .topnav a.leftsideactive {
-  background-color: #59cc50;
-  color: white;
-}
-                    
+}                
                     .mod {
                     width: 19px;
                               height: 18px;

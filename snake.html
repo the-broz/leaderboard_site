@@ -5,10 +5,9 @@
           </head>
 <body>
           <div class="topnav">
-          <a href="/">Home</a>  
-        <a href="signup">Signup</a>  
-         <a href="https://forms.gle/zCXXvJF8WtBic1cJA">Submit Score</a>
-                   
+          <a href="/">Home</a>   
+        <a href="https://forms.gle/zCXXvJF8WtBic1cJA"><span><i class="fa-solid fa-plus"></i></span> Submit Score</a> 
+                            <a href="/v2/login" style="float: right;">Login</a> 
 </div>
           
           <div class="leaderboard">
@@ -166,14 +165,14 @@ console.log(sortable);
                     }
                              }else{
                               if (done == false){
-                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i-1][0]+" - "+addCommas(sortable[i-1][1])+" apples"
+                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" apples"
                               }
                              
                              }
                             }else{
                               console.log("undefined")
                               if (done == false){
-                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i-1][0]+" - "+addCommas(sortable[i-1][1])+" apples"
+                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" apples"
                               }
                              }
                     newScore.className = "placement"

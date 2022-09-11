@@ -31,6 +31,8 @@ function getCookie(cname) {
   return "";
 }
 
+
+
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
@@ -43,12 +45,12 @@ onValue(starCountRef, (snapshot) => {
   thedata = data;
           for (var i = 0; i < Object.keys(thedata).length; i++){
                     
-                    
+                    console.log(thedata[Object.keys(thedata)[i]].securityToken == getCookie("SECURITYTOKEN_DONOTSHARE")+" | "+thedata[Object.keys(thedata)[i]].securityToken+ " == "+getCookie("SECURITYTOKEN_DONOTSHARE"))     
             if (thedata[Object.keys(thedata)[i]].securityToken == getCookie("SECURITYTOKEN_DONOTSHARE")){
                 // thats it!
                 console.log("correct")
                 loginButton.value = "Logging in..."
-                      location.replace('http://leaderboardsite.herokuapp.com/');
+                      //location.replace(window.location.protocol+"//"+window.location.hostname+":"+window.location.port);
               
             }else{
             console.log("TOKEN NO LONGER VALID.")
@@ -82,8 +84,6 @@ function attemptLogin(e){
           
           
     for (var i = 0; i < Object.keys(thedata).length; i++){
-        console.log(usernameField.value)
-        console.log("the "+thedata[usernameField.value])
         if (thedata[usernameField.value] != undefined){
             console.log("help")
             if (thedata[usernameField.value].password == passwordField.value){
@@ -93,7 +93,8 @@ function attemptLogin(e){
           updates['/users/'+usernameField.value+'/securityToken'] = randomId;
                 console.log("correct")
                 loginButton.value = "Logging in..."
-                document.cookie = "SECURITYTOKEN_DONOTSHARE="+randomId+"; expires=Thu, 30 Dec 2040  12:00:00 UTC";
+                      document.cookie = "SECURITYTOKEN_DONOTSHARE=";
+                document.cookie = "SECURITYTOKEN_DONOTSHARE="+randomId+"; expires=Thu, 30 Dec 2040  12:00:00 UTC;path=/";
                       location.replace('http://localhost:3000/');
                       update(ref(database),updates);
             }
