@@ -95,7 +95,7 @@ function attemptLogin(e){
                 loginButton.value = "Logging in..."
                       document.cookie = "SECURITYTOKEN_DONOTSHARE=";
                 document.cookie = "SECURITYTOKEN_DONOTSHARE="+randomId+"; expires=Thu, 30 Dec 2040  12:00:00 UTC;path=/";
-                      location.replace('http://localhost:3000/');
+                      location.replace('http://leaderboardsite.herokuapp.com/');
                       update(ref(database),updates);
             }
         }
