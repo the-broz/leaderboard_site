@@ -58,7 +58,7 @@ app.get('/v2/login', (req, res) => {
   });
 
 app.get('/user/:name', (req, res) => {
-    res.sendFile(__dirname + '/login.html')
+    res.sendFile(__dirname + '/404.html')
   });
 
 app.get('/404', (req, res) => {
