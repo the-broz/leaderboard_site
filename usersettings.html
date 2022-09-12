@@ -4,6 +4,7 @@
           <link href="/static/css/settings.css" rel="stylesheet" type="text/css" />
           <script src="/static/js/index.js" type="module" ></script>
           <script src="/static/js/settings.js" type="module"></script>
+          <link rel="icon" type="image/x-icon" href="/static/badges/siteicon.png" />
 <title>Leaderboards - User Settings</title>
 </head>
 <body>
@@ -22,12 +23,12 @@
                     <div class="logged">
                     <br/>
                     <input type="password" placeholder="Old Password" class="child" id="old"/>
-                    <p style="display:none; color:red;" id="incorrect">Incorrect Password</p>
+                    <p style="display:none; color:red; height:0px;margin-top:0px;" id="incorrect">Incorrect Password</p>
                     <br/>
                     <input type="password" placeholder="New Password"class="child" id="new"/>
                     <br/>
                     <input type="password" placeholder="Confirm New Password"class="child" id="confirm"/>
-                              <p style="display:none; color:red;" id="mismatch">Passwords do not match!</p>
+                              <p style="display:none; color:red;height:0px;margin-top:0px;" id="mismatch">Passwords do not match!</p>
                     <br/>
                     <button id="reset_pass"class="child">Reset Password</button>
                     </div>
