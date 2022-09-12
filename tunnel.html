@@ -12,9 +12,9 @@
         <a onclick="location.href='/v2/login'" class="dropbtn" style="float: right;">Login</a> 
 </div>
 <div id="myDropdown" class="dropdown-content" style="float: right;">
-  <a href="#">Settings</a>
+  <a href="/settings">Settings</a>
   <a href="#">Profile</a>
-  <a onclick="document.cookie='SECURITYTOKEN_DONOTSHARE=;path=/'; location.reload();">Logout</a>
+  <a onclick="document.cookie='SECURITYTOKEN_DONOTSHARE=;path=/'; location.replace('https://leaderboardsite.herokuapp.com');">Logout</a>
 </div>
           
           <div class="leaderboard">

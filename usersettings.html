@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+          <link href="/static/css/settings.css" rel="stylesheet" type="text/css" />
+          <script src="/static/js/index.js" type="module" ></script>
+          <script src="/static/js/settings.js" type="module"></script>
+<title>Leaderboards - User Settings</title>
+</head>
+<body>
+          <div class="topnav">
+          <a href="/">Home</a>   
+        <a href="https://forms.gle/zCXXvJF8WtBic1cJA"><span><i class="fa-solid fa-plus"></i></span> Submit Score</a> 
+        <a onclick="location.href='/v2/login'" class="dropbtn" style="float: right;">Login</a> 
+</div>
+<div id="myDropdown" class="dropdown-content" style="float: right;">
+    <a href="/settings">Settings</a>
+    <a href="#">Profile</a>
+    <a onclick="document.cookie='SECURITYTOKEN_DONOTSHARE=;path=/'; location.replace('https://leaderboardsite.herokuapp.com');">Logout</a>
+  </div>
+          <div class="container">
+                    <h1 class="settings_title">Settings</h1>
+                    <div class="logged">
+                    <br/>
+                    <input type="password" placeholder="Old Password" class="child" id="old"/>
+                    <p style="display:none; color:red;" id="incorrect">Incorrect Password</p>
+                    <br/>
+                    <input type="password" placeholder="New Password"class="child" id="new"/>
+                    <br/>
+                    <input type="password" placeholder="Confirm New Password"class="child" id="confirm"/>
+                              <p style="display:none; color:red;" id="mismatch">Passwords do not match!</p>
+                    <br/>
+                    <button id="reset_pass"class="child">Reset Password</button>
+                    </div>
+                    </div>
+</body>
+</html>

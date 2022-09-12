@@ -53,8 +53,16 @@ app.get('/v2/submit', (req, res) => {
 res.sendFile(__dirname + '/submit.html')
 });
 
+app.get('/login', (req, res) => {
+  res.sendFile(__dirname + '/login.html')
+  });
+
 app.get('/v2/login', (req, res) => {
   res.sendFile(__dirname + '/login.html')
+  });
+app.get('/settings', (req, res) => {
+          console.log("settings request")
+  res.sendFile(__dirname + '/usersettings.html')
   });
 
 app.get('/user/:name', (req, res) => {
