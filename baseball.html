@@ -1,7 +1,7 @@
 <!-- GAME PAGE FOR: GOOGLE BASEBALL !-->
 <head>
           <link href="/static/css/gamepage.css" rel="stylesheet" type="text/css" />
-          <title class="title">Google Baseball - Leaderboard</title>
+          <title class="title">Google Baseball - Most Runs Leaderboard</title>
           <link rel="icon" type="image/x-icon" href="/static/badges/siteicon.png" />
           </head>
 <body>
@@ -17,21 +17,27 @@
   <a onclick="document.cookie='SECURITYTOKEN_DONOTSHARE=;path=/'; location.reload();">Logout</a>
 </div>
           <div class="leaderboard">
-                    <div class="catergories">
-                              
-                              <button class="active">Homerun Derby</button>
+                              <div class="catergories">
+                              <button class="active" id="derby">Most Runs</button>
+                              <button class="inactive" id="far" style="width:150px;">Farthest Homerun</button>
                               </div>
                     <h1 style="color: white;">Google Baseball</h1>
                     <p style="color: white;">LINK: <a href="https://sites.google.com/site/unblockedgameswtf/google-doodle-baseball">Website</a></p>
-                    <div class="mods"><p class="moderators" style="color: white;">Leaderboard Moderator(s):</p><p style="color: white;"><span><img src="/static/badges/supermod.png" alt="supermod" class="mod"/></span> thebroz</p></div>
+                    <div class="mods">
+                              <p class="moderators" style="color: white;">Leaderboard Moderator(s):</p>
+                              <p style="color: white;"><span><img src="/static/badges/supermod.png" alt="supermod" class="mod"/></span> thebroz</p>
+                               <p style="color: white;"><span><img src="/static/badges/supermod.png" alt="supermod" class="mod"/></span> captaincoolman444</p>
+                              
+                    </div>
                     
-                    <button class="submit" onclick="location.href='https://forms.gle/zCXXvJF8WtBic1cJA';">Submit Score</button>
+                    
                     
                    
                     <div class="placements"/>
                     <p class="extra">It may take up to 7 days for your score to be reviewed and approved.</p>
           </div>
           <script type="module">
+                    var scoreType = "runs"
             var oldData = [];
             var firstTime = true;
                  function addCommas(nStr)
@@ -50,14 +56,14 @@ return x1 + x2;
 if (start === end) return;
 var range = end - start;
 var current = start;
-var increment = end > start? 1 : -1;
+var increment = end > start? 5 : -1;
 var stepTime = Math.abs(Math.floor(duration / range));
 var obj = id;
 var timer = setInterval(function() {
     current += increment;
-  obj.innerHTML = "[<span class=\"first\"><img src=\"/static/leaderboard/first.png\" alt=\"1st\"></span>] "+name+" - "+addCommas(current)+" runs"
+  obj.innerHTML = "[<span class=\"first\"><img src=\"/static/leaderboard/first.png\" alt=\"1st\"></span>] "+name+" - "+addCommas(current)+" "+scoreType
     if (current >= end) {
-              obj.innerHTML = "[<span class=\"first\"><img src=\"/static/leaderboard/first.png\" alt=\"1st\"></span>] "+name+" - "+addCommas(end)+" runs"
+              obj.innerHTML = "[<span class=\"first\"><img src=\"/static/leaderboard/first.png\" alt=\"1st\"></span>] "+name+" - "+addCommas(end)+" "+scoreType
         clearInterval(timer);
     }
 }, 10);
@@ -85,14 +91,14 @@ messagingSenderId: "943539476503",
 appId: "1:943539476503:web:82e4398689311b3fec2452",
 measurementId: "G-D16RW8RJYM"
 };
-
+var CAT = "derby"
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
                  const database = getDatabase();
                  function updateBoard(){
                            document.getElementsByClassName('placements')[0].innerHTML = "";
-                 const starCountRef = ref(database, 'games/' + 'baseball' + '/derby');
+                 const starCountRef = ref(database, 'games/' + 'baseball/' + CAT);
 onValue(starCountRef, (snapshot) => {
 const data = snapshot.val();
        document.getElementsByClassName('placements')[0].innerHTML = "";
@@ -127,7 +133,7 @@ console.log(sortable);
                     newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";}
                     }
                     if (i + 1 == 2){
-                              newScore.innerHTML = "[<span class=\"sec\"><img src=\"/static/leaderboard/sec.png\" alt=\"2nd\"></span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
+                              newScore.innerHTML = "[<span class=\"sec\"><img src=\"/static/leaderboard/sec.png\" alt=\"2nd\"></span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" "+scoreType
                               console.log("is sec!");
                                newScore.className = "placement"
                               done = true;
@@ -137,7 +143,7 @@ console.log(sortable);
                     newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";}
                     }
                     if (i + 1 == 3){
-                              newScore.innerHTML = "[<span class=\"third\"><img src=\"/static/leaderboard/third.png\" alt=\"3rd\"></span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
+                              newScore.innerHTML = "[<span class=\"third\"><img src=\"/static/leaderboard/third.png\" alt=\"3rd\"></span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" "+scoreType
                               console.log("is third!");
                                newScore.className = "placement"
                               done = true;
@@ -156,7 +162,7 @@ console.log(sortable);
                               newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";
                     }
                     if (i  == 2){
-                              newScore.innerHTML = "[<span class=\"sec\">2nd</span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" pts"
+                              newScore.innerHTML = "[<span class=\"sec\">2nd</span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" "+scoreType
                               console.log("is sec!");
                                newScore.className = "placement"
                               done = true;
@@ -165,7 +171,7 @@ console.log(sortable);
                                newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i-1)+"s; animation-iteration-count: 1;";
                     }
                     if (i  == 3){
-                              newScore.innerHTML = "[<span class=\"third\">3rd</span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" pts"
+                              newScore.innerHTML = "[<span class=\"third\">3rd</span>] "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" "+scoreType
                               console.log("is third!");
                                newScore.className = "placement"
                               done = true;
@@ -173,18 +179,18 @@ console.log(sortable);
                                newScore.style = "animation: scoreAdd; animation-duration: "+(.5+i)+"s; animation-iteration-count: 1;";
                     }
                     if (done == false){
-                      newScore.innerHTML = "<span class=\"other\">["+(i - 1)+"th]</span> "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
+                      newScore.innerHTML = "<span class=\"other\">["+(i - 1)+"th]</span> "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" "+scoreType
                     }
                              }else{
                               if (done == false){
-                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" runs"
+                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" "+scoreType
                               }
                              
                              }
                             }else{
                               console.log("undefined")
                               if (done == false){
-                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" pts"
+                                newScore.innerHTML = "<span class=\"other\">["+(i + 1)+"th]</span> "+sortable[i][0]+" - "+addCommas(sortable[i][1])+" "+scoreType
                               }
                              }
                     newScore.className = "placement"
@@ -202,7 +208,30 @@ console.log(sortable);
 });
                      }
                      
+                    var CAT1 = document.getElementById("derby")
+                     var TITLE = document.getElementsByClassName("title")
+                     var CAT2 = document.getElementById("far")
                      
+                     
+                     CAT1.addEventListener('click',function(e){
+                     e.preventDefault();
+                               CAT = "derby"
+                               scoreType = "runs"
+                               CAT1.className = "active"
+                               document.title = "Google Baseball - Most Runs Leaderboard"
+                               CAT2.className = "inactive"
+                               updateBoard();
+                     });
+                     CAT2.addEventListener('click',function(e){
+                     e.preventDefault();
+                               CAT = "far"
+                               scoreType = "ft"
+                               CAT2.className = "active"
+                               document.title = "Google Baseball - Farthest Homerun Leaderboard"
+                               CAT1.className = "inactive"
+                               updateBoard();
+                     }); 
+                    
 updateBoard();
 setInterval(function(){
   firstTime = false;
