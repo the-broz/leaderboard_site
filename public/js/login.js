@@ -50,7 +50,7 @@ onValue(starCountRef, (snapshot) => {
                 // thats it!
                 console.log("correct")
                 loginButton.value = "Logging in..."
-                      //location.replace(window.location.protocol+"//"+window.location.hostname+":"+window.location.port);
+                      location.replace(window.location.protocol+"//"+window.location.hostname+":"+window.location.port);
               
             }else{
             console.log("TOKEN NO LONGER VALID.")

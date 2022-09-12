@@ -27,14 +27,19 @@ function getCookie(cname) {
   return "";
 }
 
-
+function removeItem(sKey, sPath, sDomain) {
+  document.cookie = encodeURIComponent(sKey) + 
+                "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + 
+                (sDomain ? "; domain=" + sDomain : "") + 
+                (sPath ? "; path=" + sPath : "");
+}
       
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
                      const database = getDatabase();
                      var thedata = undefined;
-                    const signInButton = document.getElementById("login")
+                    const signInButton = document.getElementsByClassName("dropbtn")[0]
                                const starCountRef = ref(database, 'users/');
 onValue(starCountRef, (snapshot) => {
   const data = snapshot.val();
@@ -45,7 +50,7 @@ onValue(starCountRef, (snapshot) => {
                 // thats it!
                 console.log("correct")
                 signInButton.innerHTML = Object.keys(thedata)[i]
-                signInButton.href = "javascript:void()";
+                signInButton.onclick = myFunction;
             }else{
             
             }
@@ -54,3 +59,20 @@ onValue(starCountRef, (snapshot) => {
 },{
   onlyOnce: true
 });
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
