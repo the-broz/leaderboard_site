@@ -20,6 +20,7 @@
                               <div class="catergories">
                               <button class="active" id="derby">Most Runs</button>
                               <button class="inactive" id="far" style="width:150px;">Farthest Homerun</button>
+                                        <button class="inactive" id="most" style="width:165px;">Consecutive Homeruns</button>
                               </div>
                     <h1 style="color: white;">Google Baseball</h1>
                     <p style="color: white;">LINK: <a href="https://sites.google.com/site/unblockedgameswtf/google-doodle-baseball">Website</a></p>
@@ -211,6 +212,7 @@ console.log(sortable);
                     var CAT1 = document.getElementById("derby")
                      var TITLE = document.getElementsByClassName("title")
                      var CAT2 = document.getElementById("far")
+                     var CAT3 = document.getElementById("most")
                      
                      
                      CAT1.addEventListener('click',function(e){
@@ -220,6 +222,7 @@ console.log(sortable);
                                CAT1.className = "active"
                                document.title = "Google Baseball - Most Runs Leaderboard"
                                CAT2.className = "inactive"
+                               CAT3.className = "inactive"
                                updateBoard();
                      });
                      CAT2.addEventListener('click',function(e){
@@ -229,6 +232,17 @@ console.log(sortable);
                                CAT2.className = "active"
                                document.title = "Google Baseball - Farthest Homerun Leaderboard"
                                CAT1.className = "inactive"
+                               CAT3.className = "inactive"
+                               updateBoard();
+                     }); 
+                    CAT3.addEventListener('click',function(e){
+                     e.preventDefault();
+                               CAT = "most"
+                               scoreType = "runs in a row"
+                               CAT3.className = "active"
+                               document.title = "Google Baseball - Most Consecutive Homeruns Leaderboard"
+                               CAT2.className = "inactive"
+                              CAT1.className = "inactive"
                                updateBoard();
                      }); 
                     
