@@ -95,7 +95,7 @@ function attemptLogin(e){
                 loginButton.value = "Logging in..."
                       document.cookie = "SECURITYTOKEN_DONOTSHARE=";
                 document.cookie = "SECURITYTOKEN_DONOTSHARE="+randomId+"; expires=Thu, 30 Dec 2040  12:00:00 UTC;path=/";
-                      location.replace('http://leaderboardsite.herokuapp.com/');
+                      location.replace('https://leaderboardsite-1.the-broz.repl.co/');
                       update(ref(database),updates);
             }
         }
